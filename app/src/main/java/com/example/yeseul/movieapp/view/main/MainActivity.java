@@ -17,8 +17,6 @@ import android.text.TextUtils;
 import android.view.inputmethod.EditorInfo;
 
 import com.example.yeseul.movieapp.R;
-import com.example.yeseul.movieapp.data.model.MovieSortByDictionary;
-import com.example.yeseul.movieapp.data.model.MovieSortStrategy;
 import com.example.yeseul.movieapp.data.model.MovieStrategyFactory;
 import com.example.yeseul.movieapp.data.source.movie.MovieRepository;
 import com.example.yeseul.movieapp.databinding.ActivityMovieBinding;
@@ -161,6 +159,8 @@ public class MainActivity extends BaseActivity<ActivityMovieBinding, MainPresent
         String searchKey = binding.searchBox.etSearch.getText().toString();
 
         if(!TextUtils.isEmpty(searchKey)) {
+            // 정렬 순서 변경
+            binding.searchBox.btnOrder.setText("사전순");
             // Event 를 Presenter 에 위임
             presenter.onSearchButtonClicked(searchKey);
             // RecyclerView 위치를 최상단으로 설정

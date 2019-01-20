@@ -2,8 +2,6 @@ package com.example.yeseul.movieapp.view.main;
 
 import android.annotation.SuppressLint;
 import android.databinding.ObservableBoolean;
-import android.databinding.ObservableField;
-import android.util.Log;
 
 import com.example.yeseul.movieapp.data.model.MovieSortStrategy;
 import com.example.yeseul.movieapp.data.source.movie.MovieRepository;
@@ -14,6 +12,9 @@ import com.example.yeseul.movieapp.view.adapter.AdapterContract;
 
 import java.util.List;
 
+import javax.security.auth.Subject;
+
+import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 
 public class MainPresenter implements MainContract.Presenter {
@@ -113,7 +114,6 @@ public class MainPresenter implements MainContract.Presenter {
             return;
         }
 
-        // RXJava 특성상 Subscribe 하고 있어서
         // activity_movie 의 progressBar Visibility 가 변경된다.
         isLoading.set(true);
 
